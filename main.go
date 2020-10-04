@@ -12,7 +12,8 @@ import (
 func main() {
 	client, err := newInClusterClient()
 	if err != nil {
-		panic(err.Error())
+		fmt.Printf("ErrorCannotCreateInClusterClient : %s\n", err.Error())
+		os.Exit(1)
 	}
 
 	path := "/healthz"
