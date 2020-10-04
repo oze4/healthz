@@ -28,7 +28,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Success : ok!")
+	fmt.Printf("Success : ok\n")
 	os.Exit(0)
 }
 
