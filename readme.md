@@ -1,0 +1,1 @@
+Proof of concept for using in cluster client config from client-go in order to check healthz
