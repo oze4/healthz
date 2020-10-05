@@ -9,35 +9,8 @@ spec:
     spec:
       template:
         spec:
-          serviceAccountName: is-healthz-ok
+######### serviceAccountName: dont-need-svc-accnt
           containers:
             - name: is-healthz-ok
               image: oze4/is-healthz-ok:latest
           restartPolicy: OnFailure
----
-# service account
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: is-healthz-ok
-  namespace: default
----
-# cluster role binding
-kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: is-healthz-ok
-subjects:
-  - kind: ServiceAccount
-    name: is-healthz-ok
-    namespace: default
-roleRef:
-  kind: ClusterRole
-  ##########################################################################
-  # Instead of assigning cluster-admin you can create your own ClusterRole #
-  # I used cluster-admin because this is a homelab                         #
-  ##########################################################################
-  name: cluster-admin
-  apiGroup: rbac.authorization.k8s.io
----
-
